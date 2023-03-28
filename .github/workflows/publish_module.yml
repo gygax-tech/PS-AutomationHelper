@@ -1,0 +1,13 @@
+name Publish
+on: [workflow_dispatch]
+jobs:
+    build:
+      name: Publish
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v1
+        - name: Publish
+          env:
+              NUGET_API_KEY:  ${{NUGET_API_KEY}}
+          run: .\publish.ps1
+          shell: pwsh
