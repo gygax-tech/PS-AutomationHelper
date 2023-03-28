@@ -21,13 +21,13 @@
   GUID              = '078d6da9-c523-49f2-9376-9f07eb5b39f7'
 
   # Author of this module
-  Author            = 'gfa'
+  Author            = 'gfa@root.ch'
 
   # Company or vendor of this module
   CompanyName       = 'root-service ag'
 
   # Copyright statement for this module
-  Copyright         = '(c) 2023 Fabian Gyagx. All rights reserved.'
+  Copyright         = '(c) 2023 root-service (Fabian Gygax). All rights reserved.'
 
   # Description of the functionality provided by this module
   Description       = 'Helper module for automating tasks.'
@@ -95,25 +95,25 @@
     PSData = @{
 
       # Tags applied to this module. These help with module discovery in online galleries.
-      Tags = @('Automation', 'PowerShell')
+      Tags                       = @('Automation', 'PowerShell')
 
       # A URL to the license for this module.
-      LicenseUri = ''
+      LicenseUri                 = 'https://github.com/root-service/PS-AutomationHelper/blob/main/LICENSE'
 
       # A URL to the main website for this project.
-      ProjectUri = ''
+      ProjectUri                 = ''
 
       # A URL to an icon representing this module.
       # IconUri = ''
 
       # ReleaseNotes of this module
-      ReleaseNotes = ''
+      ReleaseNotes               = 'https://github.com/root-service/PS-AutomationHelper/blob/main/ReleaseNotes.md'
 
       # Prerelease string of this module
       # Prerelease = ''
 
       # Flag to indicate whether the module requires explicit user acceptance for install/update/save
-      RequireLicenseAcceptance = $false
+      RequireLicenseAcceptance   = $false
 
       # External dependent modules of this module
       ExternalModuleDependencies = @()
@@ -123,7 +123,7 @@
   } # End of PrivateData hashtable
 
   # HelpInfo URI of this module
-  # HelpInfoURI = ''
+  HelpInfoURI       = 'https://github.com/root-service/PS-AutomationHelper/blob/main/README.md'
 
   # Default prefix for commands exported from this module. Override the default prefix using Import-Module -Prefix.
   # DefaultCommandPrefix = ''
