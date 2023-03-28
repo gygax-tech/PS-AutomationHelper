@@ -1,4 +1,4 @@
-name Publish
+name: Publish
 on: [workflow_dispatch]
 jobs:
     build:
@@ -6,6 +6,8 @@ jobs:
       runs-on: ubuntu-latest
       steps:
         - uses: actions/checkout@v1
+          with:
+            ref: main
         - name: Publish
           env:
               NUGET_API_KEY:  ${{NUGET_API_KEY}}
