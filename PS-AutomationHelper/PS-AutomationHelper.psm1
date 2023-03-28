@@ -8,7 +8,7 @@ foreach ($file in ($filesToImport)) {
   . $file.FullName
 }
 
-$classes = Get-ChildItem -Path "$PSScriptRoot\Classes\*.cs"
+$classes = Get-ChildItem -Path "$PSScriptRoot\Public\Classes\*.cs"
 $classes | ForEach-Object {
   $rawText = Get-Content $_.FullName -Raw
   Add-Type -TypeDefinition $rawText
