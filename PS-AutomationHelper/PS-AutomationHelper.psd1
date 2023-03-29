@@ -12,7 +12,7 @@
   RootModule        = './PS-AutomationHelper.psm1'
 
   # Version number of this module.
-  ModuleVersion     = "0.0.2"
+  ModuleVersion     = '0.0.2'
 
   # Supported PSEditions
   # CompatiblePSEditions = @()
@@ -101,7 +101,7 @@
       LicenseUri                 = 'https://github.com/root-service/PS-AutomationHelper/blob/main/LICENSE'
 
       # A URL to the main website for this project.
-      ProjectUri                 = ''
+      ProjectUri                 = 'https://github.com/root-service/PS-AutomationHelper'
 
       # A URL to an icon representing this module.
       # IconUri = ''
@@ -110,7 +110,7 @@
       ReleaseNotes               = 'https://github.com/root-service/PS-AutomationHelper/blob/main/ReleaseNotes.md'
 
       # Prerelease string of this module
-      # Prerelease = ''
+      Prerelease                 = 'rc-1'
 
       # Flag to indicate whether the module requires explicit user acceptance for install/update/save
       RequireLicenseAcceptance   = $false
