@@ -2,10 +2,12 @@
 
 # Install the module
 
-Install-Module PS-AutomationHelper -Repository PSGallery
+# Install-Module PS-AutomationHelper -Repository PSGallery
 
-#Import the module
-Import-Module PS-AutomationHelper -Force
+# #Import the module
+# Import-Module PS-AutomationHelper -Force
+
+Import-Module 'C:\repos\PS-AutomationHelper\PS-AutomationHelper\PS-AutomationHelper.psd1' -Force
 
 # Define an new array of type [ExecutionStep[]]
 [ExecutionStep[]]$ExecutionSteps = @()
@@ -21,11 +23,11 @@ $secondStepError
 
 # Define a HashTable
 $myFistInstallStep = @{
-  StepDescription = 'Will run with precondition -eq $true | Will be recovered' 
+  Description = 'Will run with precondition -eq $true | Will be recovered' 
   Precondition    = { $true }
   ExecutionAction = { Write-Host 'Executing step 1 -> success' -ForegroundColor Green }
   RecoverAction   = { Write-Host 'Recovering step 1' -ForegroundColor Cyan }
-  ErrorMsg        = 'Error Message'
+  ErrorMessage        = 'Error Message'
 }
 
 
@@ -40,10 +42,10 @@ $ExecutionSteps += $firstStep
 # a terminal error
 
 $secondStep = New-ExecutionStep `
-  -StepDescription 'Will run without precondition | Will be recovered.' `
+  -Description 'Will run without precondition | Will be recovered.' `
   -ExecutionAction { Write-Host 'Executing step 2 -> success' -ForegroundColor Green } `
   -RecoverAction { Write-Host 'Recovering step 2' -ForegroundColor Cyan } `
-  -ErrorMsg 'Error 2'
+  -ErrorMessage 'Error 2'
 
 # Add the step to the array
 $ExecutionSteps += $secondStep
@@ -66,7 +68,7 @@ $ExecutionSteps = Add-ExecutionStep `
 $ExecutionSteps = Add-ExecutionStep `
   -Precondition { $false } `
   -ExecutionStepList $ExecutionSteps `
-    -Description 'Will be skipped | Will not be recovered as the execution was skipped.' `
+  -Description 'Will be skipped | Will not be recovered as the execution was skipped.' `
   -ExecutionAction { Remove-Item c:\doesNotExist } `
   -RecoverAction { Write-Hosts 'Recovering step 4' -ForegroundColor Cyan } `
   -ErrorMessage 'Could not remove inexisting element' `
@@ -74,10 +76,19 @@ $ExecutionSteps = Add-ExecutionStep `
 
 # This step will run, not be skipped and will produce a terminal error causing the previous steps to be recovered if they have run..
 $ExecutionSteps += New-ExecutionStep `
-  -StepDescription 'Executes with terminal error | Will be recovered with error.' `
-  -ExecutionAction { Remove-Item c:\doesNotExist } `
+  -Description 'Executes with terminal error | Will be recovered with error.' `
+  -ExecutionAction { Write-Host 'Bla' } `
   -RecoverAction { Write-Host 'Recovering step 4' -ForegroundColor Cyan } `
-  -ErrorMsg 'Error 5 | Will be recovered' `
+  -ErrorMessage 'Error 5 | Will be recovered' `
   -TerminalError
+
+$stepAdd = @{ 
+  Description       = 'Will run with precondition -eq $true | Will be recovered' 
+  Precondition = { $true } 
+  ExecutionAction = { Write-Host 'Executing step 1 -> success' -ForegroundColor Green } 
+  RecoverAction = { Write-Host 'Recovering step 1' -ForegroundColor Cyan } 
+  ErrorMessage = 'Error Message' 
+  ExecutionStepList = $ExecutionSteps }
+Add-ExecutionStep @stepAdd 
 
 Invoke-Execution -ExecutionSteps $ExecutionSteps
