@@ -2,8 +2,9 @@ function New-ExecutionStep {
   [CmdletBinding()]
   param (
     [Parameter(Mandatory = $true)]
+    [Alias('StepDescription')]
     [ValidateNotNullOrEmpty()]
-    [string]$StepDescription,
+    [string]$Description,
 
     [Parameter(Mandatory = $true)]
     [ValidateNotNull()]
@@ -13,8 +14,9 @@ function New-ExecutionStep {
     [scriptblock]$Precondition,
     
     [Parameter(Mandatory = $true)]
+    [Alias('ErrorMsg')]
     [ValidateNotNullOrEmpty()]
-    [string]$Errormsg,
+    [string]$ErrorMessage,
     
     [Parameter(Mandatory = $false)]
     [switch]$TerminalError,
@@ -25,10 +27,10 @@ function New-ExecutionStep {
 
   $ExecutionStep = [ExecutionStep]::new()
   
-  $ExecutionStep.StepDescription = $StepDescription
+  $ExecutionStep.Description = $Description
   $ExecutionStep.ExecutionAction = $ExecutionAction
   $ExecutionStep.Precondition = $Precondition
-  $ExecutionStep.ErrorMsg = $ErrorMsg
+  $ExecutionStep.ErrorMessage = $ErrorMessage
   $ExecutionStep.RecoverAction = $RecoverAction
   $ExecutionStep.TerminalError = $TerminalError.IsPresent
 

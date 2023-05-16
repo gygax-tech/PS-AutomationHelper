@@ -31,7 +31,7 @@ function Invoke-Execution {
           $step.Success = $false
           $step.ExecutionError = $_
 
-          Write-Warning "$($currentStep) -> '$($step.StepDescription)' produced the following exception:`r`n'$($exception.InnerException.Message)'."
+          Write-Warning "$($currentStep) -> '$($step.Description)' produced the following exception:`r`n'$($exception.InnerException.Message)'."
           if ($step.TerminalError) {
             Write-Verbose 'This is error is flagged as terminal. Undoing all changes..'
             $needsRecover = $true
@@ -44,7 +44,7 @@ function Invoke-Execution {
       else {
         $step.Executed = $false
         $step.Success = $true
-        Write-Host "$($currentStep+[int]1). Skipped: $($step.StepDescription) as precondition is met." -ForegroundColor Gray
+        Write-Host "$($currentStep+[int]1). Skipped: $($step.Description) as precondition is met." -ForegroundColor Gray
       }
       if ($needsRecover) {
         Recover ($currentStep) # Undo Execution
@@ -62,7 +62,7 @@ function Invoke-Execution {
     function Recover ([int]$currentStep) {
       $step = $ExecutionSteps[$currentStep]
       if ($step.Executed -and $step.RecoverAction) {
-        Write-Host "$($currentStep+[int]1). Undo: $($step.StepDescription)" -ForegroundColor Yellow
+        Write-Host "$($currentStep+[int]1). Undo: $($step.Description)" -ForegroundColor Yellow
         try {
           $result = $step.RecoverAction.InvokeWithContext($null, $ExecutionStepContext)
           if (($result -eq $false) -or ($result.length -and $result[0] -eq $false)) {

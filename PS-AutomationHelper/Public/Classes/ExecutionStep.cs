@@ -8,7 +8,7 @@ namespace PS.Automation.Helper
     /// <summary>
     /// Description of the step.
     /// </summary>
-    public string StepDescription { get; set; }
+    public string Description { get; set; }
 
     /// <summary>
     /// ScriptBlock containing the code to be executed.
@@ -18,7 +18,7 @@ namespace PS.Automation.Helper
     /// <summary>
     /// Message to be displayed in case of failure during the execution.
     /// </summary>
-    public string ErrorMsg { get; set; }
+    public string ErrorMessage { get; set; }
 
     /// <summary>
     /// Code to undo the changes made by <c>ExecutionAction</c>.
@@ -63,11 +63,11 @@ namespace PS.Automation.Helper
 
     }
 
-    public ExecutionStep(string stepDescription, ScriptBlock ExecutionAction, ScriptBlock precondition, string errorMsg, ScriptBlock recoverAction, bool terminalError)
+    public ExecutionStep(string Description, ScriptBlock ExecutionAction, ScriptBlock precondition, string ErrorMessage, ScriptBlock recoverAction, bool terminalError)
     {
-      this.StepDescription = stepDescription;
+      this.Description = Description;
       this.ExecutionAction = ExecutionAction;
-      this.ErrorMsg = errorMsg;
+      this.ErrorMessage = ErrorMessage;
       this.Precondition = precondition;
       this.RecoverAction = recoverAction;
       this.Executed = false;
