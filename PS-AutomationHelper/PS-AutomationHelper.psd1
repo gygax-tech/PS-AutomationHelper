@@ -110,7 +110,7 @@
       ReleaseNotes               = 'https://github.com/root-service/PS-AutomationHelper/blob/main/ReleaseNotes.md'
 
       # Prerelease string of this module
-      Prerelease                 = 'rc-1'
+      Prerelease                 = 'rc1'
 
       # Flag to indicate whether the module requires explicit user acceptance for install/update/save
       RequireLicenseAcceptance   = $false
