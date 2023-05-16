@@ -7,6 +7,7 @@ function Add-ExecutionStep {
     [ExecutionStep[]]$ExecutionStepList,
 
     [Parameter(Mandatory = $true, ParameterSetName = 'newStep')]
+    [Alias('StepDescription')]
     [ValidateNotNullOrEmpty()]
     [string]$Description,
 
@@ -16,6 +17,7 @@ function Add-ExecutionStep {
 
     [Parameter(Mandatory = $true, ParameterSetName = 'newStep')]
     [ValidateNotNullOrEmpty()]
+    [Alias('ErrorMsg')]
     [string]$ErrorMessage,
 
     [Parameter(Mandatory = $false, ParameterSetName = 'newStep')]
