@@ -6,8 +6,7 @@
 
 # #Import the module
 # Import-Module PS-AutomationHelper -Force
-
-Import-Module 'C:\repos\PS-AutomationHelper\PS-AutomationHelper\PS-AutomationHelper.psd1' -Force
+Import-Module "$(Split-Path $PSScriptRoot)\PS-AutomationHelper.psd1" -Force -NoClobber
 
 # Define an new array of type [ExecutionStep[]]
 [ExecutionStep[]]$ExecutionSteps = @()
@@ -77,7 +76,7 @@ $ExecutionSteps = Add-ExecutionStep `
 # This step will run, not be skipped and will produce a terminal error causing the previous steps to be recovered if they have run..
 $ExecutionSteps += New-ExecutionStep `
   -Description 'Executes with terminal error | Will be recovered with error.' `
-  -ExecutionAction { Write-Host 'Bla' } `
+  -ExecutionAction { Write-Hos 'Bla' } `
   -RecoverAction { Write-Host 'Recovering step 4' -ForegroundColor Cyan } `
   -ErrorMessage 'Error 5 | Will be recovered' `
   -TerminalError
@@ -96,8 +95,8 @@ Invoke-Execution -ExecutionSteps $ExecutionSteps
 # SIG # Begin signature block
 # MIIPFwYJKoZIhvcNAQcCoIIPCDCCDwQCAQExDzANBglghkgBZQMEAgEFADB5Bgor
 # BgEEAYI3AgEEoGswaTA0BgorBgEEAYI3AgEeMCYCAwEAAAQQH8w7YFlLCE63JNLG
-# KX7zUQIBAAIBAAIBAAIBAAIBADAxMA0GCWCGSAFlAwQCAQUABCCBC+HCpguoKZ2v
-# 00UlI5JvAInC3g4pX7RiGkNLSAk7CqCCDBQwggXqMIIE0qADAgECAhBb43g/0Jux
+# KX7zUQIBAAIBAAIBAAIBAAIBADAxMA0GCWCGSAFlAwQCAQUABCDPbuyRNG0vUsZY
+# YC5ccDaYXBufqSOwQ9eoVNy4BwQSgKCCDBQwggXqMIIE0qADAgECAhBb43g/0Jux
 # +D5VsO4a+HT+MA0GCSqGSIb3DQEBCwUAMIGRMQswCQYDVQQGEwJHQjEbMBkGA1UE
 # CBMSR3JlYXRlciBNYW5jaGVzdGVyMRAwDgYDVQQHEwdTYWxmb3JkMRowGAYDVQQK
 # ExFDT01PRE8gQ0EgTGltaXRlZDE3MDUGA1UEAxMuQ09NT0RPIFJTQSBFeHRlbmRl
@@ -168,11 +167,11 @@ Invoke-Execution -ExecutionSteps $ExecutionSteps
 # IENvZGUgU2lnbmluZyBDQQIQW+N4P9Cbsfg+VbDuGvh0/jANBglghkgBZQMEAgEF
 # AKCBhDAYBgorBgEEAYI3AgEMMQowCKACgAChAoAAMBkGCSqGSIb3DQEJAzEMBgor
 # BgEEAYI3AgEEMBwGCisGAQQBgjcCAQsxDjAMBgorBgEEAYI3AgEVMC8GCSqGSIb3
-# DQEJBDEiBCBE5b3qcfomeILP9ot25adXFgdoRsVn6fer4ENjQH6BsjANBgkqhkiG
-# 9w0BAQEFAASCAQALqms5bT7vFAXFG6wMo1Dyfk/sXQ0rycYNN4W4iK3F5xnNAnaz
-# i0eequhXm6SkxCfvGrFGUYUgKvn20myqDV4yVF/vfN1nj/dGAo7FHNn0nPw7bYHk
-# lSCQKpx8ivKivOROxa3b9m6EWc/k2VX38K2KW7djmqK4heAMxdDh/I52fEiq5Ul2
-# XzwZQoEYd90DmmG9GHM67eaIr2wT+rRVslEKTHIIw4+Nagru4gSReE7Nc2wml/f+
-# Pu+pwaCuN4r13KWMJ6eNJDv7/qGZ/mDOSSnZDFMQOJYQ792+inbaNvD7CyeoYOPu
-# XzlXBJA8vJe0gJJnnAv0W1sBEnZRQUuoSG9V
+# DQEJBDEiBCDWWlwmaXxC6ehvw5oUyXe001fIT0B6k/NhArUh/nhHrDANBgkqhkiG
+# 9w0BAQEFAASCAQBXD2T2Fwt5783x9fkW3ts3YMiuYNbObV4XZqurqvQcsrMSq5nk
+# NZUecqMt46Z2xeWA85P1YIwE59wQ6DHHHalcFiopJajOA5EAZUVWFZgLEmiE7ccb
+# ZyMZY0yJiDEEkOruNrTxNvi7Xcr0tLPxjniJx+rwr+0EPjXxjp1UB2ecgexlLG3t
+# 6NjntvlEz8yM3xc0rUATTEDlWwKE3XLDzGI0ujPr2gGYMmXietGFVP8xpM+N7ycJ
+# vESOPu41TwUt/RqUVsngHqnJvkrAMoIKNpBkp3YmuJVRP7ybKgP5SfB5wO4IGqEP
+# KkOu8mdsUxoXx6ZWcQTg3IpCh6bxaGgx2LJ+
 # SIG # End signature block

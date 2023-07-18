@@ -23,7 +23,8 @@ function Invoke-Execution {
       }
       if (-not $skipped) {
         try {
-          $result = $step.ExecutionAction.InvokeWithContext($null, $ExecutionStepContext) 
+          Write-Host "$($currentStep+[int]1): $($step.Description)"
+          $step.ExecutionAction.InvokeWithContext($null, $ExecutionStepContext) 
           $step.Success = $true
         }
         catch {
@@ -87,8 +88,8 @@ function Invoke-Execution {
 # SIG # Begin signature block
 # MIIPFwYJKoZIhvcNAQcCoIIPCDCCDwQCAQExDzANBglghkgBZQMEAgEFADB5Bgor
 # BgEEAYI3AgEEoGswaTA0BgorBgEEAYI3AgEeMCYCAwEAAAQQH8w7YFlLCE63JNLG
-# KX7zUQIBAAIBAAIBAAIBAAIBADAxMA0GCWCGSAFlAwQCAQUABCCqkouQD/qRisQD
-# jmNAYWnKnU6uINqDvCDmCEoQb3MEHKCCDBQwggXqMIIE0qADAgECAhBb43g/0Jux
+# KX7zUQIBAAIBAAIBAAIBAAIBADAxMA0GCWCGSAFlAwQCAQUABCCMpqGHPp2lbN3N
+# taUnjCDSYsNLkkSsbB6DQDso+uiQ7aCCDBQwggXqMIIE0qADAgECAhBb43g/0Jux
 # +D5VsO4a+HT+MA0GCSqGSIb3DQEBCwUAMIGRMQswCQYDVQQGEwJHQjEbMBkGA1UE
 # CBMSR3JlYXRlciBNYW5jaGVzdGVyMRAwDgYDVQQHEwdTYWxmb3JkMRowGAYDVQQK
 # ExFDT01PRE8gQ0EgTGltaXRlZDE3MDUGA1UEAxMuQ09NT0RPIFJTQSBFeHRlbmRl
@@ -159,11 +160,11 @@ function Invoke-Execution {
 # IENvZGUgU2lnbmluZyBDQQIQW+N4P9Cbsfg+VbDuGvh0/jANBglghkgBZQMEAgEF
 # AKCBhDAYBgorBgEEAYI3AgEMMQowCKACgAChAoAAMBkGCSqGSIb3DQEJAzEMBgor
 # BgEEAYI3AgEEMBwGCisGAQQBgjcCAQsxDjAMBgorBgEEAYI3AgEVMC8GCSqGSIb3
-# DQEJBDEiBCATgMV0INCPlCOR9y1WrQWLDVZVYmaOiqCvheND+aAR0TANBgkqhkiG
-# 9w0BAQEFAASCAQC7JhUZaH2Zppz7w0tVPAI6UTRJVFFmIznS31donp05JwR0lLAy
-# aTJeTPIGqOv/IgTgJmjnPdDugbBjmWKE2ikc/kcQJIJogF+EbumbaH8LI2NmhOfP
-# NF9aC+dJqHjL+XZbFX0D/XhPR+Tq23DIqrJ1fJTIemKopS+hrIWdCg3ctBkXEUZz
-# AREWfAZn+Tk5VJ8QLgpl17ygqAsk7CgKpfMic33ckbbmhW6IBpYBPyZl13WEOSJm
-# 8diHUdmzqx0sNtbgY+mamoKwNnauhZPu6UNSXPv72uE+ke64SSMizWiG6syqCa8t
-# a13PbaFnoRseQ/1uQDhTusYKGkkBg7KTX5Ru
+# DQEJBDEiBCD0rAkd6Jm3mNn31GYFriKdCvBG1bxKLGyCfhqtAq2g1DANBgkqhkiG
+# 9w0BAQEFAASCAQBFk0GXMbZFrPr6Vy/dIbjajhyKOtDfu2k+oAhiPFcjcFLGKcYu
+# s7S1vx60575C+t2JUCEBqNIkDpHZ4J+4TwYJNZvy3Gd3FdsPYf9EUtDlsqP6vhZp
+# g4vUA8/qpAY23pNAOayfb7sxtYMaaYfhoqdKY5Tuz8Bv4D89KUyfsWe+URj6R6H5
+# oSU4zPAdFS/NVH21D79V+0cKiwmv9hed1NJJo+BrBJuH4rNSIWJu8j1UmoTcaEXN
+# pdff1/Du5GdwJ1zx90ShaJJjNMWvPVyoMpdsv8Wszv5Ix0ioT0oaHjThMlYkYvS0
+# HlrypK0Tcc7GjnAyICJHl5lXVeheLNGXMEsW
 # SIG # End signature block
